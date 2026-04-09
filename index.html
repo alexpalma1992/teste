@@ -1,3 +1,130 @@
-<html>
-ola meu amigos . este é um teste de web!!
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>NOSSA DATA ESPECIAL</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            text-shadow: 2px 2px 4px #00000060;
+        }
+
+        .para-baixo {
+            margin-top: 50px;
+            margin-bottom: 50px;
+            text-align: center;
+            width: 90%;
+            max-width: 500px;
+        }
+
+        h1 { font-size: 2.5em; margin-bottom: 20px; }
+        p { font-size: 22px; color: #c2185b; text-shadow: none; font-weight: bold; }
+
+        img {
+            width: 250px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px #00000040;
+            margin-bottom: 30px;
+        }
+
+        /* Estilo da área da pergunta */
+        .pergunta-container {
+            background: rgba(255, 255, 255, 0.3);
+            padding: 25px;
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            margin-top: 20px;
+        }
+
+        input[type="date"] {
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            font-size: 18px;
+            margin: 15px 0;
+            outline: none;
+        }
+
+        button {
+            background-color: #c2185b;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* O Coração que vai aparecer */
+        #coracao-gigante {
+            display: none; /* Começa escondido */
+            font-size: 150px;
+            color: #ff1744;
+            margin-top: 20px;
+            animation: bater 0.8s infinite;
+        }
+
+        @keyframes bater {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .mensagem-sucesso {
+            display: none;
+            font-size: 24px;
+            color: #c2185b;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="para-baixo">
+        <h1>Para o meu amor ❤️</h1>
+        <p>Não vejo a hora de ter você todos os dias.</p>
+        
+        <img src="IMG_20250412_213335.jpg" alt="Nossa Foto">
+
+        <div class="pergunta-container" id="caixa-pergunta">
+            <p>Coloque a data que começamos a namorar:</p>
+            <input type="date" id="dataInput">
+            <br>
+            <button onclick="verificarData()">Revelar Surpresa</button>
+        </div>
+
+        <div id="coracao-gigante">❤️</div>
+        <p id="texto-sucesso" class="mensagem-sucesso">Acertou! Te amo mil milhões! 🌹</p>
+    </div>
+
+    <script>
+        function verificarData() {
+            const dataDigitada = document.getElementById('dataInput').value;
+            // O formato do input date é AAAA-MM-DD
+            const dataCerta = "2023-12-20";
+
+            if (dataDigitada === dataCerta) {
+                // Esconde a pergunta
+                document.getElementById('caixa-pergunta').style.display = 'none';
+                
+                // Mostra o coração e a mensagem
+                document.getElementById('coracao-gigante').style.display = 'block';
+                document.getElementById('texto-sucesso').style.display = 'block';
+            } else {
+                alert("Essa não é a nossa data! Tenta de novo, amor... 🤔");
+            }
+        }
+    </script>
+
+</body>
 </html>
